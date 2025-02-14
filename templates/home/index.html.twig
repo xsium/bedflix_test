@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Bedflix - Watch Movies & TV Shows
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <style>
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg');
+      background-size: cover;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .video-card {
+      transition: transform 0.2s;
+    }
+    .video-card:hover {
+      transform: scale(1.05);
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+    .btn-outline-primary {
+      border: white 1px solid;
+      background-color: black;
+    }
+    .btn-primary {
+      border: white 1px solid;
+      background-color: red;
+      color: white;
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div class="hero">
+    <div class="text-left pl-5">
+      <h1 class="text-4xl font-bold mb-4">Breaking Bad</h1>
+      <p class="text-xl">A high school chemistry teacher turned methamphetamine manufacturer...</p>
+      <div>
+        <span class="btn btn-outline-primary">En savoir plus</span>
+        <a href="{{ asset('videos/breaking-bad.mp4') }}"><span class="btn btn-primary">Regarder</span></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-black text-white py-8">
+    <h2 class="text-2xl font-bold px-8 mb-4">Latest Releases</h2>
+    <div class="video-grid">
+      {% if latest_videos is defined and latest_videos is not empty %}
+        {% for video in latest_videos %}
+          <a href="{{ asset('videos/' ~ video.videoUrl) }}">
+            <div class="video-card">
+              <img src="{{ video.thumbnailUrl }}" alt="{{ video.title }}" class="w-full rounded" />
+              <h3 class="mt-2 font-semibold">{{ video.title }}</h3>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <p>Aucune vidéo sortie récemment...</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}
