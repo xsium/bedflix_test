@@ -14,3 +14,79 @@ body {
 .video-card:hover {
     cursor: pointer;
 }
+
+.alert{
+    outline: 2px solid white;
+    margin: 5px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+.alert-success{
+    background-color: rgb(34, 98, 34);
+}
+.alert-danger{
+    background-color: rgb(91, 21, 5);
+}
+.alert-error{
+    background-color: rgb(159, 37, 9);
+}
+h1{
+    text-align: center;
+    font-size: large;
+
+}
+form{
+    margin: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form>div{
+    margin: 5px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+label ~ input{
+    background-color: rgb(40, 40, 40);
+    padding: 2px;
+    padding-left: 5px;
+    border-radius:4px ;
+}
+button{
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2sease-in-out;
+    text-decoration: none;
+    border: white 1px solid;
+    background-color: red;
+    color: white;
+}
+#registration_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#registration_form>div{
+    margin: 5px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#registration_form>div:nth-child(5){
+    display: flex;
+    justify-content: space-between;
+}
+#registration_form>div:nth-child(6){
+    display: flex;
+    justify-content: center;
+}
